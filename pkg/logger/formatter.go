@@ -11,7 +11,7 @@ import (
 var _ logrus.Formatter = &BeanFormatter{}
 
 type BeanFormatter struct {
-	traceId string
+	TraceId string
 }
 
 // Format [time] [level] [file:line] [func] [msg] [data]
@@ -37,8 +37,8 @@ func (f BeanFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 	}
 
 	// 添加请求 ID
-	if f.traceId != "" {
-		b.WriteString(fmt.Sprintf("%s|", f.traceId))
+	if f.TraceId != "" {
+		b.WriteString(fmt.Sprintf("%s|", f.TraceId))
 	}
 
 	// 添加日志消息
