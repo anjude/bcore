@@ -75,7 +75,7 @@ func (c *HTTPClient) Request(method, endpoint string, headers map[string]string,
 
 	// Decode response body
 	if respBody != nil {
-		err = json.NewDecoder(resp.Body).Decode(respBody)
+		err = json.NewDecoder(resp.Body).Decode(&respBody)
 		if err != nil {
 			return err
 		}
